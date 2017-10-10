@@ -4,7 +4,9 @@ class ContentsController < ApplicationController
   # GET /contents
   # GET /contents.json
   def index
-    @contents = Content.all
+    @contents = Content
+    @contents = @contents.where('DATE(scheduled_at) = ?', params[:date]) if params[:date]
+    @contents = @contents.all
   end
 
   # GET /contents/1

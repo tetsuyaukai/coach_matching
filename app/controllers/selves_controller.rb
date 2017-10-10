@@ -1,0 +1,2 @@
+class SelvesController < ApplicationController
+end

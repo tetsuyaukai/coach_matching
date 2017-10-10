@@ -39,9 +39,17 @@ UsersSport.create!(user_id: user5.id, sport_id: sport5.id)
 UsersSport.create!(user_id: user6.id, sport_id: sport6.id)
 
 
-Content.create!(scheduled_at: Time.now+1.weeks, place_id: place1.id, user_id: user1.id)
-Content.create!(scheduled_at: Time.now+1.weeks, place_id: place2.id, user_id: user2.id)
-Content.create!(scheduled_at: Time.now+1.weeks, place_id: place3.id, user_id: user3.id)
-Content.create!(scheduled_at: Time.now+1.weeks, place_id: place4.id, user_id: user4.id)
-Content.create!(scheduled_at: Time.now+1.weeks, place_id: place5.id, user_id: user5.id)
-Content.create!(scheduled_at: Time.now+1.weeks, place_id: place6.id, user_id: user6.id)
+content1 = Content.create!(scheduled_at: Time.now+1.weeks, place_id: place1.id, user_id: user1.id)
+content2 = Content.create!(scheduled_at: Time.now+1.weeks, place_id: place2.id, user_id: user2.id)
+content3 = Content.create!(scheduled_at: Time.now+1.weeks, place_id: place3.id, user_id: user3.id)
+content4 = Content.create!(scheduled_at: Time.now+1.weeks, place_id: place4.id, user_id: user4.id)
+content5 = Content.create!(scheduled_at: Time.now+1.weeks, place_id: place5.id, user_id: user5.id)
+content6 = Content.create!(scheduled_at: Time.now+1.weeks, place_id: place6.id, user_id: user6.id)
+
+
+Agreement.create!(user_id: user1.id, content_id: content1.id, status: 0)
+Agreement.create!(user_id: user2.id, content_id: content2.id, status: 1)
+Agreement.create!(user_id: user3.id, content_id: content3.id, status: 2)
+Agreement.create!(user_id: user4.id, content_id: content4.id, status: 0)
+Agreement.create!(user_id: user5.id, content_id: content5.id, status: 1)
+Agreement.create!(user_id: user6.id, content_id: content6.id, status: 2)
