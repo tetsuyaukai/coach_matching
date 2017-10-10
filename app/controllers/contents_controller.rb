@@ -8,6 +8,7 @@ class ContentsController < ApplicationController
     @contents = @contents.where('DATE(scheduled_at) = ?', params[:date]) if params[:date]
     @contents = @contents.all
 
+    # コンソール出力
     p current_user
   end
 
