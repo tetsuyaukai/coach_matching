@@ -7,6 +7,8 @@ class ContentsController < ApplicationController
     @contents = Content
     @contents = @contents.where('DATE(scheduled_at) = ?', params[:date]) if params[:date]
     @contents = @contents.all
+
+    p current_user
   end
 
   # GET /contents/1

@@ -4,7 +4,7 @@ class AgreementsController < ApplicationController
   # GET /agreements
   # GET /agreements.json
   def index
-    @agreements = Agreement.all
+    @agreements = current_user.agreements
   end
 
   # GET /agreements/1

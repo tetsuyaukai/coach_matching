@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root to: "home#index"
+  # root to: "contents#index"
   resources :agreements
   resources :users_sports
   resources :sports
