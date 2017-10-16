@@ -1,0 +1,26 @@
+
+<div class="container">
+  <table class="table">
+    <%= link_to("検索画面へ", contents_url, {class: "btn btn-primary"}) %>
+    　<%= link_to("プロフィール変更",edit_self_url, {class: "btn btn-primary"}) %>
+      
+    <tbody>
+      <tr>
+        <th scope="row">name</th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th scope="row">gender</th>
+        <td>J<%= @user.gender %></td>
+      </tr>
+      <tr>
+        <th scope="row">email</th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th scope="row">profile</th>
+        <td><%= @user.profile %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

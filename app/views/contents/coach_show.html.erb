@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_content_path(@content) %> |
+<%= link_to 'Back', coach_contents_path %>
+
+  <div class="container list-group-item">
+    <%= render partial: "contents/coach_detail", locals: {content: @content, agreements: @content.agreements} %>
+
+  </div>

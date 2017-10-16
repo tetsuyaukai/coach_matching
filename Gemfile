@@ -35,6 +35,10 @@ gem 'bootstrap', '~> 4.0.0.beta'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'devise'
+gem 'rails-i18n'
+gem 'cancancan'
+gem 'kaminari', :git => 'https://github.com/kaminari/kaminari'
+gem 'haml-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -26,6 +26,7 @@
 #  failed_attempts        :integer          default(0), not null
 #  unlock_token           :string
 #  locked_at              :datetime
+#  role                   :integer          default(0), not null
 #
 
 require 'test_helper'

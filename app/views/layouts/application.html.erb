@@ -9,9 +9,8 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= render partial: "layouts/header" %>
+    <p class="notice alert alert-success"><%= notice %></p>
     <%= yield %>
     <%= render partial: "layouts/footer" %>
   </body>

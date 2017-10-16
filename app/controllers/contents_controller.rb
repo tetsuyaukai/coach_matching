@@ -1,20 +1,42 @@
 class ContentsController < ApplicationController
-  before_action :set_content, only: %i[show edit update destroy]
+  load_and_authorize_resource
 
   # GET /contents
   # GET /contents.json
   def index
-    @contents = Content
-    @contents = @contents.where('DATE(scheduled_at) = ?', params[:date]) if params[:date]
+    @contents = @contents.where('scheduled_date = ?', params[:date]) if params[:date]
     @contents = @contents.all
 
-    # コンソール出力
+    @current_user = current_user
+
+    @contents = @contents.page(params[:page])
+
+    # for console
     p current_user
+  end
+
+  # coach index
+  def coach_index
+    @contents = @contents.where('scheduled_date = ?', params[:date]) if params[:date]
+    @contents = @contents.all
+
+    @agreements = current_user.agreements
+
+    @contents = @contents.page(params[:page])
+
+    # for console
+    p current_user
+
   end
 
   # GET /contents/1
   # GET /contents/1.json
-  def show; end
+  def show
+
+    p "---------"
+    p @contents
+
+  end
 
   # GET /contents/new
   def new
@@ -28,10 +50,14 @@ class ContentsController < ApplicationController
   # POST /contents.json
   def create
     @content = Content.new(content_params)
+    @content.user_id = current_user.id
+    p "--------------"
+    p @content.errors
+    p content_params
 
     respond_to do |format|
       if @content.save
-        format.html { redirect_to @content, notice: 'Content was successfully created.' }
+        format.html { redirect_to coach_contents_url, notice: 'Content was successfully created.' }
         format.json { render :show, status: :created, location: @content }
       else
         format.html { render :new }
@@ -45,7 +71,7 @@ class ContentsController < ApplicationController
   def update
     respond_to do |format|
       if @content.update(content_params)
-        format.html { redirect_to @content, notice: 'Content was successfully updated.' }
+        format.html { redirect_to coach_contents_url, notice: 'Content was successfully updated.' }
         format.json { render :show, status: :ok, location: @content }
       else
         format.html { render :edit }
@@ -73,6 +99,8 @@ class ContentsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def content_params
-    params.fetch(:content, {})
+    params.fetch(:content, {}).permit(
+    :place_id, :scheduled_date, :scheduled_time, :menu
+    )
   end
 end

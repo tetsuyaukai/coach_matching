@@ -2,3 +2,8 @@
 
 <%= link_to 'Edit', edit_content_path(@content) %> |
 <%= link_to 'Back', contents_path %>
+
+  <div class="container list-group-item">
+    <%= render partial: "contents/detail", locals: {content: @content} %>
+    <%= button_to "申請する", {controller: 'agreements', action: 'create', params: {agreement: {content_id: @content.id}} }, {class: "btn btn-secondary"} %>
+  </div>

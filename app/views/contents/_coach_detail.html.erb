@@ -1,0 +1,17 @@
+<!-- coacn_contents detail common parts -->
+<p><%= content.scheduled_date %></p>
+<p>場所：<%= content.place.name %></p>
+<p>メニュー：<%= content.menu %></p>
+<p>生徒一覧：</p>
+<% content.agreements.each do |agreement| %>
+  <p>
+    <%= agreement.user.name || agreement.user.email  %>　<%= agreement.status %>
+    <% if agreement.status == 'request' %>
+        <%= link_to "承認する", agreement_url(agreement.id, params: {agreement: {status: :agree}}), method: :put %>
+        / <%= link_to "拒否する", agreement_url(agreement.id, params: {agreement: {status: :deny}}), method: :put %>
+    <% end %>
+    <% if agreement.status == 'agree' || agreement.status == 'deny'%>
+        <%= link_to "差し戻す", agreement_url(agreement.id, params: {agreement: {status: :request}}), method: :put %>
+    <% end %>
+   </p>
+<% end %>

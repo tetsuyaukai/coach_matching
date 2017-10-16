@@ -1,2 +1,13 @@
 @import "bootstrap";
 @import "font-awesome";
+
+.alert:empty {
+  display: none;
+}
+
+// .alert {
+//   transition-property: display;
+//   transition-duration: 0s;
+//   transition-delay: 5s;
+//   display: none;
+// }

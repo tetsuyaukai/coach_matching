@@ -2,3 +2,8 @@
 
 <%= link_to 'Edit', edit_agreement_path(@agreement) %> |
 <%= link_to 'Back', agreements_path %>
+
+<div class="container list-group-item">
+  <%= render partial: "contents/detail", locals: {content: @agreement.content} %>
+  <p>ステータス：<%= @agreement.status %></p>
+</div>

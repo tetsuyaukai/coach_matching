@@ -26,6 +26,7 @@
 #  failed_attempts        :integer          default(0), not null
 #  unlock_token           :string
 #  locked_at              :datetime
+#  role                   :integer          default(0), not null
 #
 
 class User < ApplicationRecord
@@ -40,4 +41,5 @@ class User < ApplicationRecord
   has_many :agreements
 
   enum gender: { male: 1, female: 2, other: 3 }
+  enum role: { normal: 0, admin: 1 }
 end

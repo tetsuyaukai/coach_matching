@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010085952) do
+ActiveRecord::Schema.define(version: 20171012015421) do
 
   create_table "agreements", force: :cascade do |t|
     t.integer "content_id"
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 20171010085952) do
   create_table "contents", force: :cascade do |t|
     t.integer "place_id"
     t.integer "user_id"
-    t.datetime "scheduled_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "menu"
+    t.date "scheduled_date"
+    t.time "scheduled_time"
     t.index ["place_id"], name: "index_contents_on_place_id"
     t.index ["user_id"], name: "index_contents_on_user_id"
   end
@@ -68,6 +70,7 @@ ActiveRecord::Schema.define(version: 20171010085952) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.integer "role", default: 0, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

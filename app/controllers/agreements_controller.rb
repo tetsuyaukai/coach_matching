@@ -1,15 +1,21 @@
 class AgreementsController < ApplicationController
-  before_action :set_agreement, only: [:show, :edit, :update, :destroy]
+
+  load_and_authorize_resource
 
   # GET /agreements
   # GET /agreements.json
   def index
-    @agreements = current_user.agreements
+    # @agreements = current_user.agreements
+
+      @agreements = @agreements.page(params[:page])
   end
 
   # GET /agreements/1
   # GET /agreements/1.json
   def show
+    # @agreement = Agreement.find(params[:id])
+    p "---------"
+    p @agreement
   end
 
   # GET /agreements/new
@@ -24,11 +30,12 @@ class AgreementsController < ApplicationController
   # POST /agreements
   # POST /agreements.json
   def create
+    p agreement_params
     @agreement = Agreement.new(agreement_params)
-
+    @agreement.user_id = current_user.id
     respond_to do |format|
       if @agreement.save
-        format.html { redirect_to @agreement, notice: 'Agreement was successfully created.' }
+        format.html { redirect_to agreements_url, notice: 'Agreement was successfully created.' }
         format.json { render :show, status: :created, location: @agreement }
       else
         format.html { render :new }
@@ -42,7 +49,7 @@ class AgreementsController < ApplicationController
   def update
     respond_to do |format|
       if @agreement.update(agreement_params)
-        format.html { redirect_to @agreement, notice: 'Agreement was successfully updated.' }
+        format.html { redirect_to coach_content_url(@agreement.content), notice: 'Agreement was successfully updated.' }
         format.json { render :show, status: :ok, location: @agreement }
       else
         format.html { render :edit }
@@ -62,13 +69,11 @@ class AgreementsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_agreement
-      @agreement = Agreement.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agreement_params
-      params.fetch(:agreement, {})
+      params.fetch(:agreement, {}).permit(
+      :content_id, :status
+      )
     end
 end

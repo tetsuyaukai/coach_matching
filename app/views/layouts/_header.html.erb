@@ -1,5 +1,53 @@
 <!-- header -->
+<div class = "navbar navbar-dark bg-primary">
+  <%= link_to 'Sports Coach Matching', contents_url, class: "navbar-brand" %>
+  <!-- <% if params[:controller] == 'agreements' %>
+      <h2>生徒個人ページ</h2>
+  <% end %>
+  <% if params[:controller] == 'contents' && params[:action] == 'coach_index' %>
+      <h2>コーチ用ページ</h2>
+  <% end %>
+  <% if params[:controller] == 'contents' && params[:action] == 'index' %>
+      <h2>生徒用検索ページ</h2>
+  <% end %> -->
+</div>
+<div class = "header bg-faded">
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <% if params[:controller] == 'agreements' %>
+        <h3>申請練習一覧</h3>
+    <% end %>
+    <% if params[:controller] == 'contents' && params[:action] == 'coach_index' %>
+        <h3>登録練習一覧</h3>
+    <% end %>
+    <% if params[:controller] == 'contents' && params[:action] == 'index' %>
+        <h3>コーチを探す</h3>
+    <% end %>
 
-<div class = "header">
-  <h1>Sports Coach Matching</h1>
+    <% if @current_user %>
+      <h4><%= @current_user.name || @current_user.id %> さん</h4>
+    <% end %>
+    <% if params[:controller] == 'contents' %>
+        <%= link_to '登録済み', agreements_url %>
+    <% end %>
+    <% if params[:controller] == 'agreements' %>
+        <%= link_to("検索画面へ", contents_url,) %>
+    <% end %>
+
+    <% if params[:controller] == 'agreements' || params[:controller] == 'contents' %>
+    <%= link_to 'プロフィール', self_url %>
+    <% end %>
+
+    <% if params[:controller] == 'agreements' || params[:controller] == 'contents' %>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    <% end %>
+
+    <% if params[:controller] == 'contents' && params[:action] == 'index' || params[:controller] == 'agreements' %>
+        <%= link_to "コーチ用管理画面へ", coach_contents_url, class: "btn btn-secondary" %>
+    <% end %>
+    <% if params[:controller] == 'contents' && params[:action] == 'coach_index' %>
+        <%= link_to("生徒用検索画面へ", contents_url, class: "btn btn-secondary") %>
+    <% end %>
+
+
+  </nav>
 </div>

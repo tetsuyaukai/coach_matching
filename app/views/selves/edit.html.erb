@@ -1,0 +1,51 @@
+<div class="container">
+  <%= form_with(model: @user, url: self_url, method: :put) do |form| %>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">name</label>
+    <div class="col-sm-10">
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">gender</label>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <label class="form-check-label">
+          <%= form.radio_button :gender, :male, class: "form-check-input"%> 男
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <%= form.radio_button :gender, :female, class: "form-check-input"%> 女
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">birthday</label>
+    <div class="col-sm-10">
+      <%= form.text_field :birthday, class: "form-control", type: :date %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">email</label>
+    <div class="col-sm-10">
+      <%= form.text_field :email, class: "form-control", type: :email %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">profile</label>
+    <div class="col-sm-10">
+      <%= form.text_area :profile, class: "form-control" %>
+    </div>
+  </div>
+
+    <div class="actions">
+      <%= form.submit class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

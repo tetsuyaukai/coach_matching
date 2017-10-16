@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -7,15 +8,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-user1 = User.create!(name: "ユーザー1", gender: :male, birthday: "1988-10-06", email: "hoge1@gmail.com", profile: "ほげほげ1")
-user2 = User.create!(name: "ユーザー2", gender: :male, birthday: "1988-10-06", email: "hoge2@gmail.com", profile: "ほげほげ")
-user3 = User.create!(name: "ユーザー3", gender: :male, birthday: "1988-10-06", email: "hog3@gmail.com", profile: "ほげほげ")
-user4 = User.create!(name: "ユーザー4", gender: :male, birthday: "1988-10-06", email: "hog4@gmail.com", profile: "ほげほげ")
-user5 = User.create!(name: "ユーザー5", gender: :male, birthday: "1988-10-06", email: "hog5@gmail.com", profile: "ほげほげ")
-user6 = User.create!(name: "ユーザー6", gender: :male, birthday: "1988-10-06", email: "hog6@gmail.com", profile: "ほげほげ")
+user1 = User.create!(name: "ユーザー1", gender: :male, birthday: "1988-10-06", email: "hoge1@gmail.com", profile: "ほげほげ1", password: "hogehoge", password_confirmation: "hogehoge")
+user2 = User.create!(name: "ユーザー2", gender: :female, birthday: "1988-10-06", email: "hoge2@gmail.com", profile: "ほげほげ", password: "hogehoge", password_confirmation: "hogehoge")
+user3 = User.create!(name: "ユーザー3", gender: :male, birthday: "1988-10-06", email: "hog3@gmail.com", profile: "ほげほげ", password: "hogehoge", password_confirmation: "hogehoge")
+user4 = User.create!(name: "ユーザー4", gender: :female, birthday: "1988-10-06", email: "hog4@gmail.com", profile: "ほげほげ", password: "hogehoge", password_confirmation: "hogehoge")
+user5 = User.create!(name: "ユーザー5", gender: :male, birthday: "1988-10-06", email: "hog5@gmail.com", profile: "ほげほげ", password: "hogehoge", password_confirmation: "hogehoge")
+user6 = User.create!(name: "ユーザー6", gender: :female, birthday: "1988-10-06", email: "hog6@gmail.com", profile: "ほげほげ", password: "hogehoge", password_confirmation: "hogehoge")
 
 
-sport1 = Sport.create!(name: "Basball")
+sport1 = Sport.create!(name: "baseball")
 sport2 = Sport.create!(name: "basketball")
 sport3 = Sport.create!(name: "soccer")
 sport4 = Sport.create!(name: "tennis")
@@ -39,12 +40,12 @@ UsersSport.create!(user_id: user5.id, sport_id: sport5.id)
 UsersSport.create!(user_id: user6.id, sport_id: sport6.id)
 
 
-content1 = Content.create!(scheduled_at: Time.now+1.weeks, place_id: place1.id, user_id: user1.id)
-content2 = Content.create!(scheduled_at: Time.now+1.weeks, place_id: place2.id, user_id: user2.id)
-content3 = Content.create!(scheduled_at: Time.now+1.weeks, place_id: place3.id, user_id: user3.id)
-content4 = Content.create!(scheduled_at: Time.now+1.weeks, place_id: place4.id, user_id: user4.id)
-content5 = Content.create!(scheduled_at: Time.now+1.weeks, place_id: place5.id, user_id: user5.id)
-content6 = Content.create!(scheduled_at: Time.now+1.weeks, place_id: place6.id, user_id: user6.id)
+content1 = Content.create!(scheduled_date: Time.now+1.weeks, scheduled_time: Time.now+1.weeks, place_id: place1.id, user_id: user1.id)
+content2 = Content.create!(scheduled_date: Time.now+1.weeks, scheduled_time: Time.now+1.weeks, place_id: place2.id, user_id: user2.id)
+content3 = Content.create!(scheduled_date: Time.now+1.weeks, scheduled_time: Time.now+1.weeks, place_id: place3.id, user_id: user3.id)
+content4 = Content.create!(scheduled_date: Time.now+1.weeks, scheduled_time: Time.now+1.weeks, place_id: place4.id, user_id: user4.id)
+content5 = Content.create!(scheduled_date: Time.now+1.weeks, scheduled_time: Time.now+1.weeks, place_id: place5.id, user_id: user5.id)
+content6 = Content.create!(scheduled_date: Time.now+1.weeks, scheduled_time: Time.now+1.weeks, place_id: place6.id, user_id: user6.id)
 
 
 Agreement.create!(user_id: user1.id, content_id: content1.id, status: 0)

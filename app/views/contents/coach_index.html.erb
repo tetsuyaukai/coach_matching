@@ -1,25 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-
 <div class="container-fluid">
   <div class="row">
     <div class="col-6">
       <div class="list-group">
         <% @contents.each do |content| %>
-          <%= link_to content_url(content), class: "list-group-item list-group-item-action flex-column align-items-start" do %>
+          <%= link_to coach_content_url(content), class: "list-group-item list-group-item-action flex-column align-items-start" do %>
             <p><%= formated_date content.scheduled_date %></p>
             <p>場所：<%= content.place.name %></p>
-            <p>時間：<%= content.scheduled_time.strftime('%H時%M分') %></p>
-            <p>コーチ：<%= content.user.name || content.user.id %></p>
+            <p>生徒：<%= content.agreements.count %>人</p>
           <% end %>
         <% end %>
         <%= paginate @contents %>
       </div>
     </div>
     <div class="kalender col-6">
-      <form method="get" action="<%= contents_path %>">
+      <form method="get" action="<%= new_content_path %>">
         <p><input type="date" name="date" value="<%= params[:date] %>" required> <strong>必須</strong></p>
-        <p><input type="submit" value="コーチを探す"></p>
+        <p><input type="submit" value="練習を登録する"></p>
       </form>
       <%= image_tag("kalender.jpg", style: 'width:100%') %>
     </div>

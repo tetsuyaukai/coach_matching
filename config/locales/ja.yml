@@ -29,11 +29,11 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+ja:
   sports:
-    baseball: baseball
-    basketball: basketball
-    soccer: soccer
-    tennis: tennis
-    running: running
-    volleyball: volleyball
+    baseball: 野球
+    basketball: バスケットボール
+    soccer: サッカー
+    tennis: テニス
+    running: ランニング
+    volleyball: バレーボール
