@@ -8,28 +8,28 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-user1 = User.create!(name: "ユーザー1", gender: :male, birthday: "1988-10-06", email: "hoge1@gmail.com", profile: "ほげほげ1", password: "hogehoge", password_confirmation: "hogehoge")
-user2 = User.create!(name: "ユーザー2", gender: :female, birthday: "1988-10-06", email: "hoge2@gmail.com", profile: "ほげほげ", password: "hogehoge", password_confirmation: "hogehoge")
-user3 = User.create!(name: "ユーザー3", gender: :male, birthday: "1988-10-06", email: "hog3@gmail.com", profile: "ほげほげ", password: "hogehoge", password_confirmation: "hogehoge")
-user4 = User.create!(name: "ユーザー4", gender: :female, birthday: "1988-10-06", email: "hog4@gmail.com", profile: "ほげほげ", password: "hogehoge", password_confirmation: "hogehoge")
-user5 = User.create!(name: "ユーザー5", gender: :male, birthday: "1988-10-06", email: "hog5@gmail.com", profile: "ほげほげ", password: "hogehoge", password_confirmation: "hogehoge")
-user6 = User.create!(name: "ユーザー6", gender: :female, birthday: "1988-10-06", email: "hog6@gmail.com", profile: "ほげほげ", password: "hogehoge", password_confirmation: "hogehoge")
+user1 = User.create!(name: 'ユーザー1', gender: :male, birthday: '1988-10-06', email: 'hoge1@gmail.com', profile: 'ほげほげ1', password: 'hogehoge', password_confirmation: 'hogehoge')
+user2 = User.create!(name: 'ユーザー2', gender: :female, birthday: '1988-10-06', email: 'hoge2@gmail.com', profile: 'ほげほげ', password: 'hogehoge', password_confirmation: 'hogehoge')
+user3 = User.create!(name: 'ユーザー3', gender: :male, birthday: '1988-10-06', email: 'hog3@gmail.com', profile: 'ほげほげ', password: 'hogehoge', password_confirmation: 'hogehoge')
+user4 = User.create!(name: 'ユーザー4', gender: :female, birthday: '1988-10-06', email: 'hog4@gmail.com', profile: 'ほげほげ', password: 'hogehoge', password_confirmation: 'hogehoge')
+user5 = User.create!(name: 'ユーザー5', gender: :male, birthday: '1988-10-06', email: 'hog5@gmail.com', profile: 'ほげほげ', password: 'hogehoge', password_confirmation: 'hogehoge')
+user6 = User.create!(name: 'ユーザー6', gender: :female, birthday: '1988-10-06', email: 'hog6@gmail.com', profile: 'ほげほげ', password: 'hogehoge', password_confirmation: 'hogehoge')
 
 
-sport1 = Sport.create!(name: "baseball")
-sport2 = Sport.create!(name: "basketball")
-sport3 = Sport.create!(name: "soccer")
-sport4 = Sport.create!(name: "tennis")
-sport5 = Sport.create!(name: "running")
-sport6 = Sport.create!(name: "volleyball")
+sport1 = Sport.create!(name: 'baseball')
+sport2 = Sport.create!(name: 'basketball')
+sport3 = Sport.create!(name: 'soccer')
+sport4 = Sport.create!(name: 'tennis')
+sport5 = Sport.create!(name: 'running')
+sport6 = Sport.create!(name: 'volleyball')
 
 
-place1 = Place.create!(name: "新宿")
-place2 = Place.create!(name: "代々木")
-place3 = Place.create!(name: "渋谷")
-place4 = Place.create!(name: "恵比寿")
-place5 = Place.create!(name: "目黒")
-place6 = Place.create!(name: "品川")
+place1 = Place.create!(name: '新宿')
+place2 = Place.create!(name: '代々木')
+place3 = Place.create!(name: '渋谷')
+place4 = Place.create!(name: '恵比寿')
+place5 = Place.create!(name: '目黒')
+place6 = Place.create!(name: '品川')
 
 
 UsersSport.create!(user_id: user1.id, sport_id: sport1.id)
@@ -48,9 +48,9 @@ content5 = Content.create!(scheduled_date: Time.now+1.weeks, scheduled_time: Tim
 content6 = Content.create!(scheduled_date: Time.now+1.weeks, scheduled_time: Time.now+1.weeks, place_id: place6.id, user_id: user6.id)
 
 
-Agreement.create!(user_id: user1.id, content_id: content1.id, status: 0)
-Agreement.create!(user_id: user2.id, content_id: content2.id, status: 1)
-Agreement.create!(user_id: user3.id, content_id: content3.id, status: 2)
-Agreement.create!(user_id: user4.id, content_id: content4.id, status: 0)
-Agreement.create!(user_id: user5.id, content_id: content5.id, status: 1)
-Agreement.create!(user_id: user6.id, content_id: content6.id, status: 2)
+Agreement.create!(user_id: user1.id, content_id: content1.id, status: 'request')
+Agreement.create!(user_id: user2.id, content_id: content2.id, status: 'agree')
+Agreement.create!(user_id: user3.id, content_id: content3.id, status: 'deny')
+Agreement.create!(user_id: user4.id, content_id: content4.id, status: 'request')
+Agreement.create!(user_id: user5.id, content_id: content5.id, status: 'agree')
+Agreement.create!(user_id: user6.id, content_id: content6.id, status: 'deny')

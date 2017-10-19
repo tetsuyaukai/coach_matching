@@ -14,5 +14,5 @@ class Agreement < ApplicationRecord
   belongs_to :content
   belongs_to :user
 
-  enum status: { request: 0, agree: 2, deny: 3 }
+  enum status: { request: 0, agree: 1, deny: 2 }
 end

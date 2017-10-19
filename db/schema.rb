@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20171012015421) do
 
-  create_table "agreements", force: :cascade do |t|
+  create_table "agreements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer "content_id"
     t.integer "user_id"
     t.integer "status", default: 0, null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20171012015421) do
     t.index ["user_id"], name: "index_agreements_on_user_id"
   end
 
-  create_table "contents", force: :cascade do |t|
+  create_table "contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer "place_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -34,19 +34,19 @@ ActiveRecord::Schema.define(version: 20171012015421) do
     t.index ["user_id"], name: "index_contents_on_user_id"
   end
 
-  create_table "places", force: :cascade do |t|
+  create_table "places", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "sports", force: :cascade do |t|
+  create_table "sports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "name"
     t.integer "gender"
     t.date "birthday"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20171012015421) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
-  create_table "users_sports", force: :cascade do |t|
+  create_table "users_sports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer "user_id"
     t.integer "sport_id"
     t.datetime "created_at", null: false
