@@ -1,8 +1,10 @@
 
-
-<%= link_to 'Edit', edit_content_path(@content) %> |
-<%= link_to 'Back', coach_contents_path %>
-
+<div class="navbar">
+  <div>
+    <%= link_to 'Back', coach_contents_path, class: "btn btn-primary" %>
+    <%= link_to 'Edit', edit_content_path(@content), class: "btn btn-primary" %>
+  </div>
+</div>
   <div class="container list-group-item">
     <%= render partial: "contents/coach_detail", locals: {content: @content, agreements: @content.agreements} %>
 
