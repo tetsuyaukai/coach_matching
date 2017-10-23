@@ -13,3 +13,11 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+
+
+// インフォメーションメッセージを5秒後に非表示にする
+function messageDelete(){
+var messagedel = document.getElementById("notice")
+messagedel.style.visibility = "hidden";
+}
