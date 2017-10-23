@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   #     redirect_to root_path, notice: "Please Login to view that page!"
   #   end
   # end
-
+  def after_sign_in_path_for(resource)
+    contents_url
+  end
 
 end
