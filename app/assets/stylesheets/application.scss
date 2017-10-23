@@ -5,6 +5,27 @@
   display: none;
 }
 
+body{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.container{
+    flex-grow: 1;
+}
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.navbar {
+  width: 100%;
+}
+
 // .alert {
 //   transition-property: display;
 //   transition-duration: 0s;
