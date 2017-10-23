@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
     contents_url
   end
 
+  def after_sign_out_path_for(resource)
+    user_session_url
+  end
+
 end
