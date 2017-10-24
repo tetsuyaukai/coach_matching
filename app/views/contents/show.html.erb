@@ -8,6 +8,6 @@
       <%= render partial: "contents/detail", locals: {content: @content} %>
     </div>
     <div class="text-center" id="container">
-      <%= button_to "申請する", {controller: 'agreements', action: 'create', params: {agreement: {content_id: @content.id}} }, {class: "btn btn-secondary"} %>
+      <%= button_to "申請する", {controller: 'agreements', action: 'create', params: {agreement: {content_id: @content.id}} }, {class: "btn btn-primary"} %>
     </div>
   </div>
