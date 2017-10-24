@@ -1,8 +1,13 @@
 
-<%= link_to 'Edit', edit_content_path(@content) %> |
-<%= link_to 'Back', contents_path %>
+<div class="container-fluid mb-2 ml-5">
+  <%= link_to '戻る', contents_url, class: "btn btn-primary" %>
+</div>
 
-  <div class="container list-group-item">
-    <%= render partial: "contents/detail", locals: {content: @content} %>
-    <%= button_to "申請する", {controller: 'agreements', action: 'create', params: {agreement: {content_id: @content.id}} }, {class: "btn btn-secondary"} %>
+  <div class="container list-group-item flex">
+    <div class="container">
+      <%= render partial: "contents/detail", locals: {content: @content} %>
+    </div>
+    <div class="text-center" id="container">
+      <%= button_to "申請する", {controller: 'agreements', action: 'create', params: {agreement: {content_id: @content.id}} }, {class: "btn btn-primary"} %>
+    </div>
   </div>

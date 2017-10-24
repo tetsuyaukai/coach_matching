@@ -27,6 +27,13 @@ footer{
   width: 100%;
 }
 
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
 // .alert {
 //   transition-property: display;
 //   transition-duration: 0s;
