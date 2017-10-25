@@ -6,14 +6,14 @@
     <div class="col-6">
       <div class="list-group">
         <% @contents.each do |content| %>
-          <%= link_to content_url(content), class: "list-group-item list-group-item-action flex-column align-items-start" do %>
+          <%= link_to content_url(content), class: "list-group-item list-group-item-action flex-column align-items-start mb-3" do %>
             <p><%= formated_date content.scheduled_date %></p>
             <p>場所：<%= content.place.name %></p>
             <p>時間：<%= content.scheduled_time.strftime('%H時%M分') %></p>
             <p>コーチ：<%= content.user.name || content.user.id %></p>
           <% end %>
         <% end %>
-        <%= paginate @contents %>
+          <%= paginate @contents %>
       </div>
     </div>
     <div class="kalender col-6">

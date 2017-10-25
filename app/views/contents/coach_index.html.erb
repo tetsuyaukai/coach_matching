@@ -5,7 +5,7 @@
     <div class="col-6">
       <div class="list-group">
         <% @contents.each do |content| %>
-          <%= link_to coach_content_url(content), class: "list-group-item list-group-item-action flex-column align-items-start" do %>
+          <%= link_to coach_content_url(content), class: "list-group-item list-group-item-action flex-column align-items-start mb-3" do %>
             <p><%= formated_date content.scheduled_date %></p>
             <p>場所：<%= content.place.name %></p>
             <p>生徒：<%= content.agreements.count %>人</p>
