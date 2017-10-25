@@ -1,6 +1,8 @@
 
-<div class="container">
-<%= link_to '戻る', contents_path, class: "text-left btn btn-primary" %>
-</div>
+<div class="container ml-3">
+  <div class="container">
+    <%= link_to '戻る', contents_path, class: "btn btn-primary mb-3" %>
 
-<%= render 'form', content: @content %>
+    <%= render 'form', content: @content %>
+  </div>
+</div>
