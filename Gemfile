@@ -61,6 +61,7 @@ group :development do
   gem "capistrano", "~> 3.9"
   gem 'capistrano-rbenv', '~> 2.1'
   gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+  gem 'capistrano-rails-console', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,6 +1,26 @@
 <!-- header -->
 <div class = "navbar navbar-dark bg-primary">
-  <%= link_to 'Sports Coach Matching', contents_url, class: "navbar-brand" %>
+  <h1><%= link_to 'Sports Coach Matching', contents_url, class: "navbar-brand font-weight-bold" %></h1>
+
+  <% if params[:controller] == 'contents' %>
+      <%= link_to '登録済み', agreements_url, class: "text-white" %>
+  <% end %>
+  <% if params[:controller] == 'agreements' %>
+      <%= link_to("検索画面へ", contents_url, class: "text-white") %>
+  <% end %>
+
+  <% if params[:controller] == 'agreements' || params[:controller] == 'contents' %>
+  <%= link_to 'プロフィール', self_url, class: "text-white" %>
+  <% end %>
+
+  <% if params[:controller] == 'agreements' || params[:controller] == 'contents' %>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "text-white" %>
+  <% end %>
+
+  <% if @current_user %>
+    <span class="text-white"><%= @current_user.name || @current_user.email %> さん</span>
+  <% end %>
+
   <!-- <% if params[:controller] == 'agreements' %>
       <h2>生徒個人ページ</h2>
   <% end %>
@@ -23,8 +43,15 @@
         <h3>コーチを探す</h3>
     <% end %>
 
-    <% if @current_user %>
-      <h4><%= @current_user.name || @current_user.id %> さん</h4>
+    <% if params[:controller] == 'contents' && params[:action] == 'index' || params[:controller] == 'agreements' %>
+        <%= link_to "コーチ用管理画面へ", coach_contents_url, class: "btn btn-secondary" %>
+    <% end %>
+    <% if params[:controller] == 'contents' && params[:action] == 'coach_index' %>
+        <%= link_to("生徒用検索画面へ", contents_url, class: "btn btn-secondary") %>
+    <% end %>
+
+    <!-- <% if @current_user %>
+      <h4><%= @current_user.name || @current_user.email %> さん</h4>
     <% end %>
     <% if params[:controller] == 'contents' %>
         <%= link_to '登録済み', agreements_url %>
@@ -46,8 +73,7 @@
     <% end %>
     <% if params[:controller] == 'contents' && params[:action] == 'coach_index' %>
         <%= link_to("生徒用検索画面へ", contents_url, class: "btn btn-secondary") %>
-    <% end %>
-
+    <% end %> -->
 
   </nav>
 </div>
