@@ -35,7 +35,7 @@
 </div>
 <div class = "header bg-faded">
   <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <% if params[:controller] == 'agreements' %>
+    <% if params[:controller] == 'agreements' && params[:action] == 'index' %>
         <h3>申請練習一覧</h3>
     <% end %>
     <% if params[:controller] == 'contents' && params[:action] == 'coach_index' %>
@@ -45,7 +45,7 @@
         <h3>コーチを探す</h3>
     <% end %>
 
-    <% if params[:controller] == 'contents' && params[:action] == 'index' || params[:controller] == 'agreements' %>
+    <% if params[:controller] == 'contents' && params[:action] == 'index' || params[:controller] == 'agreements' && params[:action] == 'index'%>
         <%= link_to "コーチ用管理画面へ", coach_contents_url, class: "btn btn-secondary" %>
     <% end %>
     <% if params[:controller] == 'contents' && params[:action] == 'coach_index' %>
