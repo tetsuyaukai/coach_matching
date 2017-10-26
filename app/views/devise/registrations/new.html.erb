@@ -1,31 +1,32 @@
-  <div class="container">
-    <h2>Sign up</h2>
 
+
+<div class="container center-block mx-auto">
+  <div class="form-signin border border-secondary mx-auto mt-5">
+    <h2 class="form-signin-heading text-center ">サインアップ</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
-
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
+      <div class="field mx-auto">
+        <%= f.label "メールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, :class=>"form-control mb-3" %>
       </div>
 
-      <div class="field">
-        <%= f.label :password %>
+      <div class="field mx-auto">
+        <%= f.label "パスワード" %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <em>(<%= @minimum_password_length %>文字以上)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.password_field :password, autocomplete: "off", :class=>"form-control mb-3" %>
       </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <div class="field mx-auto mb-4">
+        <%= f.label "パスワード確認" %><br />
+        <%= f.password_field :password, autocomplete: "off", :class=>"form-control mb-3" %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "Sign up" %>
+      <div class="actions text-center">
+        <%= f.submit "サインアップ", :class=>"btn btn-primary btn-block mb-3" %>
       </div>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
