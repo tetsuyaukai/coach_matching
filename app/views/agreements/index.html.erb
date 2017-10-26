@@ -4,10 +4,26 @@
       <div class="list-group">
         <% @agreements.each do |agreement| %>
           <%= link_to agreement_url(agreement), class: "list-group-item list-group-item-action flex-column align-items-start mb-3" do %>
-            <p><%= formated_date agreement.content.scheduled_date %></p>
-            <p>場所：<%= agreement.content.place.name %></p>
-            <p>コーチ：<%= agreement.content.user.name %></p>
-            <p>ステータス：<%= agreement.status %></p>
+          <table class="table">
+            <h3 class="pb-2"><%= formated_date agreement.content.scheduled_date %></h3>
+              <tbody>
+                <tr>
+                  <th scope="row"></th>
+                  <td>【場所】</td>
+                  <td><%= agreement.content.place.name %></td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td>【コーチ】</td>
+                  <td><%= agreement.content.user.name %></td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td>【ステータス】</td>
+                  <td><%= agreement.status %></td>
+                </tr>
+              </tbody>
+            </table>
           <% end %>
         <% end %>
         <%= paginate @agreements %>
