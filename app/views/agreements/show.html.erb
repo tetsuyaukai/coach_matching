@@ -1,15 +1,38 @@
 <!-- <p id="notice"><%= notice %></p> -->
+<div class="container">
+  <div class="my-3">
+    <%= link_to '戻る', agreements_url(@agreement), class: "btn btn-primary" %>
+  </div>
 
-<div class="container-fluid mb-2 ml-5">
-  <%= link_to '戻る', agreements_url(@agreement), class: "btn btn-primary" %>
-</div>
-
-<div class="container list-group-item">
-  <%= render partial: "contents/detail", locals: {content: @agreement.content} %>
-  <p>
-    ステータス：<%= @agreement.status %>
-    <% if @agreement.status == 'request' %>
-        <%= link_to "申請を取り下げる", agreement_url(@agreement, params: {agreement: {status: :request}}), method: :delete %>
-    <% end %>
-  </p>
+  <div class="container list-group-item">
+    <table class="table">
+      <h3 class="pb-2"><%= @agreement.content.scheduled_date %></h3>
+        <tbody>
+          <tr>
+            <th scope="row"></th>
+            <td>【場所】</td>
+            <td><%= @agreement.content.place.name %></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>【コーチ】</td>
+            <td><%= @agreement.content.user.name %></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>【メニュー】</td>
+            <td><%= @agreement.content.menu %></td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td>【ステータス】</td>
+            <td><%= @agreement.status %>
+              <% if @agreement.status == 'request' %>
+                  <%= link_to "申請を取り下げる", agreement_url(@agreement, params: {agreement: {status: :request}}), method: :delete, class: "btn btn-secondary btn-sm ml-2" %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
 </div>
