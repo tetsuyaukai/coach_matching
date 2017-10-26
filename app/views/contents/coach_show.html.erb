@@ -1,11 +1,10 @@
 
-<div class="navbar">
-  <div>
-    <%= link_to 'Back', coach_contents_path, class: "btn btn-primary" %>
-    <%= link_to 'Edit', edit_content_path(@content), class: "btn btn-primary" %>
-  </div>
+<div class="container">
+    <div class="my-3">
+      <%= link_to '戻る', coach_contents_path, class: "btn btn-primary" %>
+      <%= link_to '練習変更', edit_content_path(@content), class: "btn btn-primary" %>
+    </div>
+    <div class="container list-group-item">
+      <%= render partial: "contents/coach_detail", locals: {content: @content, agreements: @content.agreements} %>
+    </div>
 </div>
-  <div class="container list-group-item">
-    <%= render partial: "contents/coach_detail", locals: {content: @content, agreements: @content.agreements} %>
-
-  </div>

@@ -1,7 +1,7 @@
 
-<div class="navbar">
-  <div>
-    <%= link_to 'Back', coach_content_url, class: "btn btn-primary" %>
+<div class="container">
+  <div class="my-3">
+    <%= link_to '戻る', coach_content_url, class: "btn btn-primary" %>
   </div>
+  <%= render 'form', content: @content %>
 </div>
-<%= render 'form', content: @content %>

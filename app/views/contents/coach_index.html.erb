@@ -29,7 +29,7 @@
     <div class="kalender col-6">
       <form method="get" action="<%= new_content_path %>">
         <p><input type="date" name="date" value="<%= params[:date] %>" required> <strong>必須</strong></p>
-        <p><input type="submit" value="練習を登録する"></p>
+        <p><input type="submit" value="練習を登録する" class="btn btn-primary btn-sm"></p>
       </form>
       <%= image_tag("kalender.jpg", style: 'width:100%') %>
     </div>

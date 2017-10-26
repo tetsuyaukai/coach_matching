@@ -1,5 +1,21 @@
 <!-- contents detail common parts -->
-<p><%= content.scheduled_date %></p>
-<p>場所：<%= content.place.name %></p>
-<p>コーチ：<%= content.user.name %></p>
-<p>メニュー：<%= content.menu %></p>
+<table class="table">
+  <h3 class="pb-2"><%= content.scheduled_date %></h3>
+    <tbody>
+      <tr>
+        <th scope="row"></th>
+        <td>【場所】</td>
+        <td><%= content.place.name %></td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+        <td>【コーチ】</td>
+        <td><%= content.user.name %></td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+        <td>【メニュー】</td>
+        <td><%= content.menu %></td>
+      </tr>
+    </tbody>
+  </table>
