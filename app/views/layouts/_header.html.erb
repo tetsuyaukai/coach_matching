@@ -3,22 +3,24 @@
   <h1><%= link_to 'Sports Coach Matching', contents_url, class: "navbar-brand font-weight-bold" %></h1>
 
   <% if params[:controller] == 'contents' %>
-      <%= link_to '登録済み', agreements_url, class: "text-white" %>
+      <%= link_to '登録済み', agreements_url, class: "text-white ml-auto" %>
   <% end %>
   <% if params[:controller] == 'agreements' %>
-      <%= link_to("検索画面へ", contents_url, class: "text-white") %>
+      <%= link_to("検索画面へ", contents_url, class: "text-white ml-auto") %>
   <% end %>
 
-  <% if params[:controller] == 'agreements' || params[:controller] == 'contents' %>
+  <!-- <% if params[:controller] == 'agreements' || params[:controller] == 'contents' %>
   <%= link_to 'プロフィール', self_url, class: "text-white" %>
-  <% end %>
+  <% end %> -->
 
   <% if params[:controller] == 'agreements' || params[:controller] == 'contents' %>
-  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "text-white" %>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "text-white mx-3" %>
   <% end %>
 
   <% if @current_user %>
-    <span class="text-white"><%= @current_user.name || @current_user.email %> さん</span>
+    <span class="text-white">
+      <%= link_to @current_user.name || @current_user.email, self_url, class: "text-white" %>
+    </span>
   <% end %>
 
   <!-- <% if params[:controller] == 'agreements' %>
