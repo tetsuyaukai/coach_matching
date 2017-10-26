@@ -3,7 +3,7 @@
     <div class="col-6">
       <div class="list-group">
         <% @agreements.each do |agreement| %>
-          <%= link_to agreement_url(agreement), class: "list-group-item list-group-item-action flex-column align-items-start" do %>
+          <%= link_to agreement_url(agreement), class: "list-group-item list-group-item-action flex-column align-items-start mb-3" do %>
             <p><%= formated_date agreement.content.scheduled_date %></p>
             <p>場所：<%= agreement.content.place.name %></p>
             <p>コーチ：<%= agreement.content.user.name %></p>

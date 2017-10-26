@@ -1,14 +1,25 @@
 
-
 <div class="container-fluid container">
   <div class="row">
     <div class="col-6">
       <div class="list-group">
         <% @contents.each do |content| %>
-          <%= link_to coach_content_url(content), class: "list-group-item list-group-item-action flex-column align-items-start" do %>
-            <p><%= formated_date content.scheduled_date %></p>
-            <p>場所：<%= content.place.name %></p>
-            <p>生徒：<%= content.agreements.count %>人</p>
+          <%= link_to coach_content_url(content), class: "list-group-item list-group-item-action flex-column align-items-start mb-3" do %>
+          <table class="table">
+            <h3 class="pb-2"><%= formated_date content.scheduled_date %></h3>
+              <tbody>
+                <tr>
+                  <th scope="row"></th>
+                  <td>【場所】</td>
+                  <td><%= content.place.name %></td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td>【生徒】</td>
+                  <td><%= content.agreements.count %>人</td>
+                </tr>
+              </tbody>
+            </table>
           <% end %>
         <% end %>
         <%= paginate @contents %>

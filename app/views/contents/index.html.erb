@@ -6,14 +6,30 @@
     <div class="col-6">
       <div class="list-group">
         <% @contents.each do |content| %>
-          <%= link_to content_url(content), class: "list-group-item list-group-item-action flex-column align-items-start" do %>
-            <p><%= formated_date content.scheduled_date %></p>
-            <p>場所：<%= content.place.name %></p>
-            <p>時間：<%= content.scheduled_time.strftime('%H時%M分') %></p>
-            <p>コーチ：<%= content.user.name || content.user.id %></p>
+          <%= link_to content_url(content), class: "list-group-item list-group-item-action flex-column align-items-start mb-3" do %>
+          <table class="table">
+            <h3 class="pb-2"><%= formated_date content.scheduled_date %></h3>
+              <tbody>
+                <tr>
+                  <th scope="row"></th>
+                  <td>【場所】</td>
+                  <td><%= content.place.name %></td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td>【時間】</td>
+                  <td><%= content.scheduled_time.strftime('%H時%M分') %></td>
+                </tr>
+                <tr>
+                  <th scope="row"></th>
+                  <td>【コーチ】</td>
+                  <td><%= content.user.name || content.user.email %> / <%= content.user.gender %></td>
+                </tr>
+              </tbody>
+            </table>
           <% end %>
         <% end %>
-        <%= paginate @contents %>
+          <%= paginate @contents %>
       </div>
     </div>
     <div class="kalender col-6">
