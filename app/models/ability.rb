@@ -13,7 +13,7 @@ class Ability
       agreement.content.user.id == @user.id
     end
     can [:index, :show, :create], Content
-    can [:coach_index, :coach_show], Content, user_id: @user.id
+    can [:coach_index, :coach_show, :coach_destroy], Content, user_id: @user.id
     can [:edit, :update], Content, user_id: @user.id
     can [:show], User
 

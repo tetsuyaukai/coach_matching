@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
     member do
       get :coach, to: "contents#coach_show"
+      delete :coach, to: "contents#coach_destroy"
     end
   end
   resources :users

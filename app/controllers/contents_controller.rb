@@ -90,6 +90,16 @@ class ContentsController < ApplicationController
     end
   end
 
+  # DELETE /contents/1/coach
+  # DELETE /contents/1/coach.json
+  def coach_destroy
+    @content.destroy
+    respond_to do |format|
+      format.html { redirect_to coach_contents_url, notice: 'Content was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -100,7 +110,7 @@ class ContentsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def content_params
     params.fetch(:content, {}).permit(
-    :place_id, :scheduled_date, :scheduled_time, :menu
+    :place_id, :scheduled_date, :scheduled_time, :menu,
     )
   end
 end
