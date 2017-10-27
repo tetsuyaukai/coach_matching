@@ -5,6 +5,15 @@
   <div class="row">
     <div class="col-6">
       <div class="list-group">
+
+        <% if @contents.length == 0 %>
+        <div class="container-fluid">
+          <div class="alert alert-light text-center my-3" role="alert">
+            登録されている練習は0件です
+          </div>
+        </div>
+        <% end %>
+
         <% @contents.each do |content| %>
           <%= link_to content_url(content), class: "list-group-item list-group-item-action flex-column align-items-start mb-3" do %>
           <table class="table">
