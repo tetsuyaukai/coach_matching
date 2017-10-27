@@ -8,6 +8,8 @@ class AgreementsController < ApplicationController
     # @agreements = current_user.agreements
 
       @agreements = @agreements.page(params[:page])
+      p "---------"
+      p @agreements
   end
 
   # GET /agreements/1
